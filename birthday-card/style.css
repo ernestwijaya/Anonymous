@@ -1,0 +1,334 @@
+/* =========================================
+   RESET DASAR
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+/* =========================================
+   BACKGROUND UTAMA
+========================================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  background: linear-gradient(
+    -45deg,
+    #8b0000,
+    #c1121f,
+    #ff8c00,
+    #ffd700,
+    #ffb347
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================
+   CARD UCAPAN
+========================================= */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  padding: 45px 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(255, 215, 0, 0.25);
+  animation: fadeInUp 1.2s ease;
+}
+
+.card::before {
+  content: "🎈 🎂 🎁 ✨";
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* =========================================
+   JUDUL
+========================================= */
+h1 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #fff7d6;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   PESAN
+========================================= */
+.message,
+#hiddenMessage {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: #ffffff;
+}
+
+.message {
+  margin-bottom: 25px;
+}
+
+#hiddenMessage {
+  margin-top: 25px;
+  color: #fff3b0;
+  animation: fadeIn 0.8s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+button {
+  margin-top: 10px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #ff4d6d, #ffb347);
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.35);
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #e63956, #ff9500);
+}
+
+/* =========================================
+   ANIMASI BALON
+========================================= */
+.balloons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.balloons span {
+  position: absolute;
+  bottom: -100px;
+  font-size: 3rem;
+  opacity: 0.85;
+  animation: floatBalloon 12s linear infinite;
+}
+
+/* Posisi balon untuk desktop */
+.balloons span:nth-child(1)  { left: 5%;  animation-delay: 0s; }
+.balloons span:nth-child(2)  { left: 12%; animation-delay: 1s; }
+.balloons span:nth-child(3)  { left: 18%; animation-delay: 2s; }
+.balloons span:nth-child(4)  { left: 25%; animation-delay: 3s; }
+.balloons span:nth-child(5)  { left: 32%; animation-delay: 4s; }
+.balloons span:nth-child(6)  { left: 39%; animation-delay: 1.5s; }
+.balloons span:nth-child(7)  { left: 46%; animation-delay: 2.5s; }
+.balloons span:nth-child(8)  { left: 53%; animation-delay: 0.5s; }
+.balloons span:nth-child(9)  { left: 60%; animation-delay: 3.5s; }
+.balloons span:nth-child(10) { left: 67%; animation-delay: 4.5s; }
+.balloons span:nth-child(11) { left: 74%; animation-delay: 2s; }
+.balloons span:nth-child(12) { left: 81%; animation-delay: 1s; }
+.balloons span:nth-child(13) { left: 88%; animation-delay: 3s; }
+.balloons span:nth-child(14) { left: 94%; animation-delay: 2.8s; }
+.balloons span:nth-child(15) { left: 50%; animation-delay: 5s; }
+
+/* Variasi ukuran */
+.balloons span:nth-child(odd) {
+  font-size: 2.6rem;
+}
+
+.balloons span:nth-child(even) {
+  font-size: 3.4rem;
+}
+
+/* =========================================
+   CONFETTI
+========================================= */
+.confetti {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: explode 2s ease-out forwards;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBalloon {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-50vh) rotate(8deg);
+  }
+
+  100% {
+    transform: translateY(-120vh) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate(var(--x), var(--y))
+      rotate(var(--r))
+      scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================================
+   RESPONSIVE TABLET
+========================================= */
+@media (max-width: 768px) {
+  .card {
+    padding: 35px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .message,
+  #hiddenMessage {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .balloons span {
+    font-size: 2.4rem;
+  }
+}
+
+/* =========================================
+   RESPONSIVE HP
+========================================= */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .message,
+  #hiddenMessage {
+    font-size: 0.95rem;
+  }
+
+  .balloons span {
+    font-size: 2rem;
+  }
+
+  /* Posisi balon lebih natural di HP */
+  .balloons span:nth-child(1)  { left: -5%; }
+  .balloons span:nth-child(2)  { left: 8%; }
+  .balloons span:nth-child(3)  { left: 18%; }
+  .balloons span:nth-child(4)  { left: 28%; }
+  .balloons span:nth-child(5)  { left: 38%; }
+  .balloons span:nth-child(6)  { left: 48%; }
+  .balloons span:nth-child(7)  { left: 58%; }
+  .balloons span:nth-child(8)  { left: 68%; }
+  .balloons span:nth-child(9)  { left: 78%; }
+  .balloons span:nth-child(10) { left: 88%; }
+  .balloons span:nth-child(11) { left: 98%; }
+  .balloons span:nth-child(12) { left: 108%; }
+
+  /* Sembunyikan balon sisanya agar tidak terlalu padat */
+  .balloons span:nth-child(n+13) {
+    display: none;
+  }
+}
